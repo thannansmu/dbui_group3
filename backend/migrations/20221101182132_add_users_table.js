@@ -5,10 +5,11 @@ exports.up = function(knex) {
       table.primary('email');
       table.string('name');
       table.integer('age');
-      table.integer('desiredRoomates');
+      table.integer('desired_roomates');
       table.string('city');
       table.string('bio');
       table.string('gender');
+      table.string('desired_gender');
       //preference table foreign key???
       //constraints in knex???
     });
