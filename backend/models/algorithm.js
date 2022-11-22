@@ -24,10 +24,11 @@ const PREFERENCES_TABLE = 'preferences';
        var matches;
 
        if (user[0].desired_gender == "Either"){
-           const emailQuery = knex.select('email').from(USERS_TABLE);
+           const emailQuery = knex.select('email').from(USERS_TABLE).where({city: user[0].city});
            matches = await emailQuery;
        } else {
-           const emailQuery = knex.select('email').from(USERS_TABLE).where({gender: user[0].desired_gender});
+           const emailQuery = knex.select('email').from(USERS_TABLE).where(
+            {gender: user[0].desired_gender} && {city: user[0].city});
            matches = await emailQuery;
        }
 
